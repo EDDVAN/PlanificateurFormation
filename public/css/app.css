@@ -1,0 +1,27 @@
+html {
+	font-family: "Roboto", sans-serif;
+}
+
+.bg-primary {
+	background: #55adbe;
+}
+
+.bg-secondary {
+	background: #9eb1da;
+}
+
+.bg-accent {
+	background: #7277c9;
+}
+
+.text-primary {
+	color: #55adbe;
+}
+
+.text-secondary {
+	color: #9eb1da;
+}
+
+.text-accent {
+	color: #7277c9;
+}
