@@ -26,12 +26,21 @@
 
             <div class="flex items-center gap-4">
                 <div class="sm:flex sm:gap-4">
-                    <a
-                        class="block border-2 border-emerald-600  px-5 py-2.5 text-sm font-medium text-emerald-600 transition hover:bg-emerald-600
-                        hover:text-white"
-                        href="/login">
-                        Admin
-                    </a>
+                    <?php
+                    if (Session::isLogged() == false) { ?>
+                        <a class="block border-2 border-emerald-600  px-5 py-2.5 text-sm font-medium text-emerald-600 transition hover:bg-emerald-600
+                                    hover:text-white hover:cursor-pointer"
+                            href="/login">
+                            Login
+                        </a>
+                    <?php } else { ?>
+                        <form action="/logout" method="post">
+                            <button class="block border-2 border-emerald-600  px-5 py-2.5 text-sm font-medium text-emerald-600 transition hover:bg-emerald-600
+                                    hover:text-white hover:cursor-pointer">
+                                Logout
+                            </button>
+                        </form>
+                    <?php } ?>
                 </div>
 
                 <button

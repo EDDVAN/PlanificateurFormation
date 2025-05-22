@@ -10,15 +10,16 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $data = $this->domaineModel->getAll();
-        $this->view('Home', 'Home', $data);
-        // include '../app/views/Home.php';
+        $this->view('Home', 'Home');
     }
 
     public function pageDoesNotExist()
     {
-        $title = '404 Page Not Found';
-        // Check if user is logged in
-        include '../app/Views/404.php';
+        $this->view('404', '404 Page Not Found');
+    }
+
+    public function dashboard()
+    {
+        $this->view('layout/Calandar', 'Dashboard');
     }
 }

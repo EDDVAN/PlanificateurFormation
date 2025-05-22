@@ -12,9 +12,13 @@ class Model
 
     protected function query($sql, $params = [])
     {
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute($params);
-        return $stmt;
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute($params);
+            return $stmt;
+        } catch (Throwable $th) {
+            throw new Exception($th->getMessage());
+        }
     }
 
     protected function beginTransaction()
@@ -30,5 +34,10 @@ class Model
     protected function rollback()
     {
         $this->db->rollBack();
+    }
+
+    protected function insertedId()
+    {
+        return $this->db->lastInsertId();
     }
 }

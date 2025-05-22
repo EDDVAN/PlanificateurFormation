@@ -20,20 +20,23 @@ class AuthController extends Controller
                 'username' => $user->username
             ];
             Session::setUser($authUser);
-            Session::setMessage('success', 'You are logged in!');
+            Session::setMessage('Success', 'You are logged in!');
         } else {
-            Session::setMessage('fail', 'Invalid credentials!');
+            Session::setMessage('Fail', 'Invalid credentials!');
         }
-        $this->redirect('/');
+        $this->redirect('/dashboard');
     }
 
     public function login()
     {
+        if (Session::isLogged())
+            $this->redirect('/dashboard');
         $this->view('auth/Login', 'Login');
     }
     public function logout()
     {
-        $this->userModel->logout();
-        $this->redirect('/');
+        // $this->userModel->logout();
+        Session::unsetUser();
+        $this->redirect('/login');
     }
 }

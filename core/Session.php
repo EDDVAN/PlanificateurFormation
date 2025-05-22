@@ -14,14 +14,14 @@ class Session
     }
     public static function get($key)
     {
-        $_SESSION[$key];
+        return $_SESSION[$key];
     }
 
     // message functions fpr ease of use
     public static function setMessage($type, $message)
     {
         $msg = ['type' => $type, 'message' => $message];
-        $_SESSION['message'] = $msg;
+        return $_SESSION['message'] = $msg;
     }
     public static function getMessage()
     {

@@ -25,3 +25,20 @@ html {
 .text-accent {
 	color: #7277c9;
 }
+
+.text-haha {
+	color: #7277c9;
+}
+
+/* .dt-layout-start {
+	padding-right: 1rem !important;
+	padding-left: 1rem !important;
+}
+.dt-layout-end {
+	padding-right: 1rem !important;
+	padding-left: 1rem !important;
+} */
+
+div.dt-container.dt-empty-footer tbody > tr:last-child > * {
+	border-bottom: none !important;
+}

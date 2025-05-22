@@ -23,8 +23,11 @@ class Route
 
         $pattern = preg_replace('/\{([^\/]+)\}/', '([^\/]+)', $this->path);
         $pattern = '#^' . $pattern . '$#';
-
-        return preg_match($pattern, $requestPath);
+        $res = preg_match($pattern, $requestPath);
+        if ($res == 1) {
+            Session::set('path', $requestPath);
+        }
+        return $res;
     }
 
     public function execute($requestPath)
@@ -42,7 +45,6 @@ class Route
             $middleware->handle();
         }
 
-        // Execute callback
         if (is_array($this->callback)) {
             $controller = new $this->callback[0]();
             $method = $this->callback[1];

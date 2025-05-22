@@ -1,5 +1,6 @@
 <?php $month = empty($_GET['month']) ? date('n') : $_GET['month'];
 ?>
+
 <article class="flex flex-col md:flex-row gap-4 p-4 md:gap-8 md:p-8 ">
     <section class="w-1/8 flex pt-16 flex-col gap-4 ">
         <div class="flex flex-col pb-4 border-b-1 border-gray-300">
