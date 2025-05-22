@@ -14,9 +14,30 @@
                     <span>Ajouter</span>
                 </a>
             </div>
-
         </div>
         <div class="flex flex-col gap-2 w-full h-[calc(100%-4rem)]">
+            <div class="flex flex-col gap-2">
+                <form action="/gestion/sujet" method="get">
+                    <label for="domaine">
+                        <span class="text-sm font-medium text-gray-500">Domaine <span class="text-red-700">*</span></span>
+                        <select
+                            id="domaine"
+                            name="domaine"
+                            class="mt-0.5 w-full border-gray-300 px-3 py-2 text-gray-900 shadow-sm sm:text-sm"
+                            onchange="this.form.submit()"
+                            required>
+                            <option value="">Selectionnez un domaine</option>
+                            <?php
+                            foreach ($dependencies['domaine'] as $row) {
+                                $selected = $_GET['domaine'] == $row->id ? 'selected' : '';
+                            ?>
+                                <option value="<?= $row->id ?>" <?= $selected; ?>><?= $row->name ?></option>
+                            <?php
+                            } ?>
+                        </select>
+                    </label>
+                </form>
+            </div>
             <table class="min-w-full divide-y-2 divide-gray-200 p-2 " id="sujet-table">
                 <thead class="ltr:text-left rtl:text-right">
                     <tr class="*:font-medium *:text-white bg-emerald-600 ">

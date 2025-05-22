@@ -16,12 +16,13 @@ class SujetController extends Controller
             $data = $this->sujetModel->getAll();
         else
             $data = $this->sujetModel->getByDomaine($_GET['domaine']);
-        $this->view('sujet/index', 'Gestion Sujet', $data);
+        $dependencies['domaine'] = $this->domaineModel->getAll();
+        $this->view('sujet/index', 'Gestion Sujet', $data, $dependencies);
     }
     public function add()
     {
-        $data = $this->domaineModel->getAll();
-        $this->view('sujet/Add', 'Ajouter Sujet', $data);
+        $dependencies['domaine'] = $this->domaineModel->getAll();
+        $this->view('sujet/Add', 'Ajouter Sujet', null, $dependencies);
     }
     public function edit()
     {
@@ -30,7 +31,8 @@ class SujetController extends Controller
         }
         $id = $_GET['id'];
         $data = $this->sujetModel->getById($id);
-        $this->view('sujet/Edit', 'Modifier Sujet - ' . $data->name, $data);
+        $dependencies['domaine'] = $this->domaineModel->getAll();
+        $this->view('sujet/Edit', 'Modifier Sujet - ' . $data->name, $data, $dependencies);
     }
 
     public function create()
@@ -40,15 +42,15 @@ class SujetController extends Controller
         $shortDescription = $_POST['shortDescription'];
         $longDescription = $_POST['longDescription'];
         $individualBenefit = $_POST['individualBenefit'];
-        $buisnessBenefit = $_POST['buisnessBenefit'];
+        $businessBenefit = $_POST['businessBenefit'];
         $logo = $_FILES['logo'];
-        if (empty($name) || empty($domaine)) {
+        if (empty($name) || empty($domaine) || empty($shortDescription)) {
             Session::setMessage('Fail', 'Veuillez remplir tous les champs!');
-            $this->redirect('/gestion/sujet/add');
+            $this->redirect('/gestion/sujet');
         }
-        $this->sujetModel->add($name, $domaine, $shortDescription, $longDescription, $individualBenefit, $buisnessBenefit, $logo);
+        $this->sujetModel->add($name, $domaine, $shortDescription, $longDescription, $individualBenefit, $businessBenefit, $logo);
 
-        // if ($this->sujetModel->add($name, $domaine, $shortDescription, $longDescription, $individualBenefit, $buisnessBenefit, $logo))
+        // if ($this->sujetModel->add($name, $domaine, $shortDescription, $longDescription, $individualBenefit, $businessBenefit, $logo))
         // Session::setMessage('Success', 'Sujet ajouté avec succès!');
         // else
         // Session::setMessage('Fail', 'Echec de l\'ajout!');
@@ -59,12 +61,18 @@ class SujetController extends Controller
     {
         $id = $_POST['id'];
         $name = $_POST['name'];
-        $description = $_POST['description'];
-        if (empty($id) || empty($name) || empty($description)) {
+        $domaine = $_POST['domaine'];
+        $shortDescription = $_POST['shortDescription'];
+        $longDescription = $_POST['longDescription'];
+        $individualBenefit = $_POST['individualBenefit'];
+        $businessBenefit = $_POST['businessBenefit'];
+        $logo = $_FILES['logo'];
+        if (empty($name) || empty($domaine) || empty($shortDescription)) {
             Session::setMessage('Fail', 'Veuillez remplir tous les champs!');
             $this->redirect('/gestion/sujet');
         }
-        if ($this->sujetModel->update($id, $name, $description))
+        // $this->sujetModel->update($id, $name, $domaine, $shortDescription, $longDescription, $individualBenefit, $businessBenefit, $logo);
+        if ($this->sujetModel->update($id, $name, $domaine, $shortDescription, $longDescription, $individualBenefit, $businessBenefit, $logo))
             Session::setMessage('Success', 'Sujet modifié avec succès!');
         else
             Session::setMessage('Fail', 'Echec de la modification!');

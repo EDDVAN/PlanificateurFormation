@@ -12,9 +12,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 ">
                 <label for="domaine">
                     <span class="text-sm font-medium text-gray-500">Domaine <span class="text-red-700">*</span></span>
-
                     <select
-                        type="text"
                         id="domaine"
                         name="domaine"
                         class="mt-0.5 w-full  border-gray-300 px-3 py-2 text-gray-900 shadow-sm sm:text-sm"
@@ -31,7 +29,6 @@
 
                 <label for="name">
                     <span class="text-sm font-medium text-gray-500">Nom <span class="text-red-700">*</span></span>
-
                     <input
                         type="text"
                         id="name"

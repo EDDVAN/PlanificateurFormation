@@ -2,7 +2,7 @@
 
 class Controller
 {
-    public function view($view, $title, $data = NULL)
+    public function view($view, $title, $data = NULL, $dependencies = [])
     {
         $authState = Session::isLogged();
         if ($authState) {
