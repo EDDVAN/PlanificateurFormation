@@ -73,6 +73,15 @@ Router::get('/gestion/ville/edit', ['VilleController', 'edit']);
 Router::post('/gestion/ville/update', ['VilleController', 'update']);
 Router::post('/gestion/ville/delete', ['VilleController', 'delete']);
 
+// dates
+Router::get('/gestion/date', ['FormationDateController', 'index']);
+Router::get('/gestion/date/add', ['FormationDateController', 'add']);
+Router::post('/gestion/date/create', ['FormationDateController', 'create']);
+Router::get('/gestion/date/edit', ['FormationDateController', 'edit']);
+Router::post('/gestion/date/update', ['FormationDateController', 'update']);
+Router::post('/gestion/date/delete', ['FormationDateController', 'delete']);
+
+
 // Calender
 Router::get('/dashboard/calendar', ['CalendarController', 'dashboard']);
 Router::get('/calendar', ['CalendarController', 'index']);

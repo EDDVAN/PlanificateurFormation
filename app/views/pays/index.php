@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../layout/Head.php'; ?>
 
-<body class="flex relative">
+<body class="flex relative ">
     <?php include __DIR__ . '/../layout/DeleteModal.php'; ?>
     <?php include __DIR__ . '/../layout/DashSidebar.php'; ?>
     <section class="flex flex-col p-4 md:p-8 gap-4 md:gap-8 w-screen md:w-[calc(100%-14rem)]">

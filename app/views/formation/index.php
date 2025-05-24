@@ -113,7 +113,7 @@
                             <td class="px-3 py-2 whitespace-wrap"><?= $row->cours; ?></td>
                             <td class="px-3 py-2 whitespace-wrap"><?= $row->formateur; ?></td>
                             <td class="px-3 py-2 whitespace-wrap"><?= $row->mode; ?></td>
-                            <td class="px-3 py-2 !text-right whitespace-wrap"><?= number_format($row->price, 2, ',', ' '); ?></td>
+                            <td class="px-3 py-2 !text-right whitespace-wrap"><?= number_format(intval($row->price), 2, ',', ' '); ?></td>
                             <td class="px-3 py-2 flex flex-col lg:flex-row align-center justify-around gap-2 border-0 w-fit">
                                 <a href="/gestion/formation/edit?id=<?= $row->id ?>" class="cursor-pointer flex w-12 justify-center align-center text-sm gap-1 px-2 py-1.5 text-white bg-amber-500">
                                     <i class="ph ph-pencil text-lg"></i>

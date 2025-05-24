@@ -81,8 +81,7 @@ class formationController extends Controller
             Session::setMessage('Fail', 'Veuillez remplir tous les champs!');
             $this->redirect('/gestion/formation');
         }
-        // $this->formationModel->update($id, $formateur, $cours, $price, $mode);
-        if ($this->formationModel->update($id, $cours, $formateur, $price, $mode))
+        if ($this->formationModel->update($id, $formateur, $cours, $price, $mode))
             Session::setMessage('Success', 'Formation modifié avec succès!');
         else
             Session::setMessage('Fail', 'Echec de la modification!');

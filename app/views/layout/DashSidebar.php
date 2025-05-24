@@ -133,6 +133,13 @@ include 'MobileDashSideBar.php';
                     </li>
                     <li>
                         <a
+                            href="/gestion/date"
+                            class="block rounded-lg px-4 py-2 text-sm font-medium <?= str_contains(Session::get('path'), '/date') == 1 ? 'bg-gray-100 text-gray-700' : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700'; ?>">
+                            Date
+                        </a>
+                    </li>
+                    <li>
+                        <a
                             href="/gestion/formateur"
                             class="block rounded-lg px-4 py-2 text-sm font-medium <?= str_contains(Session::get('path'), '/formateur') == 1 ? 'bg-gray-100 text-gray-700' : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700'; ?>">
                             Formateur
