@@ -1,8 +1,8 @@
 <?php require_once __DIR__ . '/../layout/Head.php'; ?>
 
-<body>
+<body class="flex relative flex-col md:flex-row">
     <?php include __DIR__ . '/../layout/DashSidebar.php'; ?>
-    <section>
+    <section class="flex-1">
 
     </section>
 </body>

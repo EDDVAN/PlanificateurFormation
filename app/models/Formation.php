@@ -13,7 +13,13 @@ class Formation extends Model
         return $this->query($sql)->fetchAll();
     }
 
-    public function getFiltered($idFormateur, $idSujet, $idCours, $idDomaine)
+    public function getUpcoming()
+    {
+        $sql = "SELECT * FROM vformation WHERE dateDebut > CURDATE();";
+        return $this->query($sql)->fetchAll();
+    }
+
+    public function getFiltered($idFormateur, $idDomaine, $idSujet, $idCours)
     {
         //initialized as id > 0 to avoid handling the first condition of the query 'AND'
         $where = "id > 0";
@@ -66,8 +72,7 @@ class Formation extends Model
     {
         try {
             $this->beginTransaction();
-            $sql = "UPDATE formation SET idFormateur = ?, idCours = ?, price = ?, mode = ?
-                        WHERE id = ?;";
+            $sql = "UPDATE formation SET idFormateur = ?, idCours = ?, price = ?, mode = ? WHERE id = ?;";
             if (!$this->query($sql, [$formateur, $cours, $price, $mode, $id])) {
                 $this->rollback();
                 throw new Exception("Erreur lors de la modification du formation");

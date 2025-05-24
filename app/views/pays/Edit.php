@@ -2,7 +2,7 @@
 
 <body class="flex relative">
     <?php include __DIR__ . '/../layout/DashSidebar.php'; ?>
-    <section class="flex flex-col p-4 md:p-8 gap-4 md:gap-8 w-[calc(100%-14rem)]">
+    <section class="flex flex-col p-4 md:p-8 gap-4 md:gap-8 w-screen md:w-[calc(100%-14rem)]">
         <div class="flex align-center justify-between gap-2 h-24">
             <h1 class="place-content-center text-3xl text-gray-700">Modifier <?= $data->name; ?></h1>
 

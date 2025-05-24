@@ -48,6 +48,15 @@ Router::get('/gestion/formateur/edit', ['FormateurController', 'edit']);
 Router::post('/gestion/formateur/update', ['FormateurController', 'update']);
 Router::post('/gestion/formateur/delete', ['FormateurController', 'delete']);
 
+// Formation
+Router::get('/gestion/formation', ['FormationController', 'index']);
+Router::get('/gestion/formation/add', ['FormationController', 'add']);
+Router::post('/gestion/formation/create', ['FormationController', 'create']);
+Router::get('/gestion/formation/edit', ['FormationController', 'edit']);
+Router::post('/gestion/formation/update', ['FormationController', 'update']);
+Router::post('/gestion/formation/delete', ['FormationController', 'delete']);
+
+
 // Pays
 Router::get('/gestion/pays', ['PaysController', 'index']);
 Router::get('/gestion/pays/add', ['PaysController', 'add']);
@@ -63,3 +72,11 @@ Router::post('/gestion/ville/create', ['VilleController', 'create']);
 Router::get('/gestion/ville/edit', ['VilleController', 'edit']);
 Router::post('/gestion/ville/update', ['VilleController', 'update']);
 Router::post('/gestion/ville/delete', ['VilleController', 'delete']);
+
+// Calender
+Router::get('/dashboard/calendar', ['CalendarController', 'dashboard']);
+Router::get('/calendar', ['CalendarController', 'index']);
+// Router::post('/dashboard/ville/create', ['VilleController', 'create']);
+// Router::get('/dashboard/ville/edit', ['VilleController', 'edit']);
+// Router::post('/dashboard/ville/update', ['VilleController', 'update']);
+// Router::post('/dashboard/ville/delete', ['VilleController', 'delete']);
