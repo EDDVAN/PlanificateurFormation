@@ -17,6 +17,20 @@ function closeDeleteModal() {
     $('#delete-modal-title-span').text();
 }
 
+function openImageModal(url, alt) {
+    console.log(url);
+    let form = $('#image-modal');
+    form.removeClass('hidden');
+    $('#modal-img').attr('src', url);
+    $('#modal-img').attr('alt', alt);
+}
+function closeImageModal() {
+    let form = $('#image-modal');
+    form.addClass('hidden');
+    $('#modal-img').attr('src', '');
+    $('#modal-img').attr('alt', '');
+}
+
 function updateFileName(e) {
     console.log(e.files[0]);
     const file = e.files[0];

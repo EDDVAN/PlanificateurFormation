@@ -12,7 +12,6 @@
             <div class="">
                 <label for="nom">
                     <span class="text-sm font-medium text-gray-500">Nom <span class="text-red-700">*</span></span>
-
                     <input
                         type="text"
                         id="nom"

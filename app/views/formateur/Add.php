@@ -4,76 +4,40 @@
     <?php include __DIR__ . '/../layout/DashSidebar.php'; ?>
     <section class="flex flex-col p-4 md:p-8 gap-4 md:gap-8 w-[calc(100%-14rem)]">
         <div class="flex align-center justify-between gap-2 h-24">
-            <h1 class="place-content-center text-3xl text-gray-700">Ajouter un Sujet</h1>
+            <h1 class="place-content-center text-3xl text-gray-700">Ajouter un Formateur</h1>
 
         </div>
-        <form method="post" action="/gestion/sujet/create" enctype="multipart/form-data"
+        <form method="post" action="/gestion/formateur/create" enctype="multipart/form-data"
             class="grid grid-cols-1 gap-2 md:gap-4 w-full max-h-[calc(100%-4rem)]">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 ">
-                <label for="domaine">
-                    <span class="text-sm font-medium text-gray-500">Domaine <span class="text-red-700">*</span></span>
-                    <select
-                        id="domaine"
-                        name="domaine"
-                        class="mt-0.5 w-full  border-gray-300 px-3 py-2 text-gray-900 shadow-sm sm:text-sm"
-                        required>
-                        <option value="">Selectionnez un domaine</option>
-                        <?php
-                        foreach ($dependencies['domaine'] as $row) {
-                        ?>
-                            <option value="<?= $row->id ?>"><?= $row->name ?></option>
-                        <?php
-                        } ?>
-                    </select>
+                <label for="firstName">
+                    <span class="text-sm font-medium text-gray-500">Prénom <span class="text-red-700">*</span></span>
+                    <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        class="mt-0.5 w-full border-gray-300 px-3 py-2 text-gray-900 shadow-sm sm:text-sm"
+                        maxlength="100"
+                        required />
                 </label>
-
-                <label for="name">
+                <label for="lastName">
                     <span class="text-sm font-medium text-gray-500">Nom <span class="text-red-700">*</span></span>
                     <input
                         type="text"
-                        id="name"
-                        name="name"
+                        id="lastName"
+                        name="lastName"
                         class="mt-0.5 w-full border-gray-300 px-3 py-2 text-gray-900 shadow-sm sm:text-sm"
                         maxlength="100"
                         required />
                 </label>
             </div>
-
-            <label for="shortDescription">
-                <span class="text-sm font-medium text-gray-500">Brève Description <span class="text-red-700">*</span></span>
-
-                <input
-                    type="text"
-                    id="shortDescription"
-                    name="shortDescription"
-                    class="mt-0.5 w-full  border-gray-300 px-3 py-2 text-gray-900 shadow-sm sm:text-sm"
-                    maxlength="100"
-                    required />
-            </label>
-
-            <label for="longDescription">
-                <span class="text-sm font-medium text-gray-500">Description Complète</span>
+            <label for="description">
+                <span class="text-sm font-medium text-gray-500">Description</span>
                 <textarea
-                    id="longDescription"
-                    name="longDescription"
+                    id="description"
+                    name="description"
                     class="mt-0.5 w-full h-24  border-gray-300 px-3 py-2 h- text-gray-900 shadow-sm sm:text-sm"></textarea>
             </label>
-            <label for="individualBenefit">
-                <span class="text-sm font-medium text-gray-500">Avantage Individuel</span>
-                <textarea
-                    id="individualBenefit"
-                    name="individualBenefit"
-                    class="mt-0.5 w-full h-24 border-gray-300 px-3 py-2 h- text-gray-900 shadow-sm sm:text-sm"></textarea>
-            </label>
-
-            <label for="businessBenefit">
-                <span class="text-sm font-medium text-gray-500">Avantage Entreprise</span>
-                <textarea
-                    id="businessBenefit"
-                    name="businessBenefit"
-                    class="mt-0.5 w-full h-24 border-gray-300 px-3 py-2 h- text-gray-900 shadow-sm sm:text-sm"></textarea>
-            </label>
-
             <label for="File" class="block rounded border border-gray-300 p-4 text-gray-900 shadow-sm sm:p-6 cursor-pointer">
                 <div class="flex flex-col items-center justify-center gap-4">
                     <div class="flex items-center justify-center gap-4">
@@ -94,11 +58,11 @@
                     <span id="selected-file-name" class="text-sm text-gray-500">No file selected</span>
                 </div>
 
-                <input onchange="updateFileName(this)" type="file" id="File" class="sr-only" name="logo" accept="image/*" />
+                <input onchange="updateFileName(this)" type="file" id="File" class="sr-only" name="photo" accept="image/*" />
             </label>
 
             <div class=" flex gap-2 md:gap-4 align-center justify-center md:justify-end">
-                <a href="/gestion/sujet" class="flex justify-center align-center gap-2  border border-emerald-600 px-4 py-2 text-sm font-medium text-emerald-600 ">
+                <a href="/gestion/formateur" class="flex justify-center align-center gap-2  border border-emerald-600 px-4 py-2 text-sm font-medium text-emerald-600 ">
                     <i class="ph ph-arrow-left text-lg"></i> <span>Retour</span>
                 </a>
                 <button type="submit" class="flex justify-center align-center gap-2 cursor-pointer  border border-emerald-600 bg-emerald-600 px-4 py-2 text-sm font-medium text-white">
@@ -108,6 +72,7 @@
         </form>
     </section>
     <script src="/js/app.js"></script>
+
 </body>
 
 </html>

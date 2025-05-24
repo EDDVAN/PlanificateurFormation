@@ -78,7 +78,6 @@ class Sujet extends Model
             $sql = "DELETE FROM sujet WHERE id = ?;";
             return $this->query($sql, [$id]);
         } catch (Throwable $th) {
-            // Session::setMessage('Fail', $th->getMessage());
             return false;
         }
     }

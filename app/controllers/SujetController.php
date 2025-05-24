@@ -48,12 +48,12 @@ class SujetController extends Controller
             Session::setMessage('Fail', 'Veuillez remplir tous les champs!');
             $this->redirect('/gestion/sujet');
         }
-        $this->sujetModel->add($name, $domaine, $shortDescription, $longDescription, $individualBenefit, $businessBenefit, $logo);
+        // $this->sujetModel->add($name, $domaine, $shortDescription, $longDescription, $individualBenefit, $businessBenefit, $logo);
 
-        // if ($this->sujetModel->add($name, $domaine, $shortDescription, $longDescription, $individualBenefit, $businessBenefit, $logo))
-        // Session::setMessage('Success', 'Sujet ajouté avec succès!');
-        // else
-        // Session::setMessage('Fail', 'Echec de l\'ajout!');
+        if ($this->sujetModel->add($name, $domaine, $shortDescription, $longDescription, $individualBenefit, $businessBenefit, $logo))
+            Session::setMessage('Success', 'Sujet ajouté avec succès!');
+        else
+            Session::setMessage('Fail', 'Echec de l\'ajout!');
         $this->redirect('/gestion/sujet');
     }
 
@@ -67,7 +67,7 @@ class SujetController extends Controller
         $individualBenefit = $_POST['individualBenefit'];
         $businessBenefit = $_POST['businessBenefit'];
         $logo = $_FILES['logo'];
-        if (empty($name) || empty($domaine) || empty($shortDescription)) {
+        if (empty($id) || empty($name) || empty($domaine) || empty($shortDescription)) {
             Session::setMessage('Fail', 'Veuillez remplir tous les champs!');
             $this->redirect('/gestion/sujet');
         }
