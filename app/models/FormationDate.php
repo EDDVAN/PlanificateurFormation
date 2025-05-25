@@ -90,6 +90,12 @@ class FormationDate extends Model
         return $this->query($sql, $params)->fetchAll();
     }
 
+    public function getUpcomingByFormation($idFormation)
+    {
+        $sql = "SELECT fd.* FROM vformation_date fd WHERE fd.date >= CURDATE() AND fd.idFormation = ?;";
+        return $this->query($sql, [$idFormation])->fetchAll();
+    }
+
     public function getPastFiltered($idFormateur, $idDomaine, $idSujet, $idCours, $idVille)
     {
         $where = "";

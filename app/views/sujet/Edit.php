@@ -20,7 +20,7 @@
                         required>
                         <option value="">Selectionnez un domaine</option>
                         <?php
-                        foreach ($data->domaines as $row) {
+                        foreach ($dependencies['domaine'] as $row) {
                             $selected = $data->idDomaine == $row->id ? 'selected' : '';
                         ?>
                             <option value="<?= $row->id ?>" <?= $selected; ?>><?= $row->name ?></option>

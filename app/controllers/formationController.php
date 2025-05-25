@@ -47,6 +47,15 @@ class formationController extends Controller
 
         $this->view('client/Formation', 'Liste Formation', $data, $dependencies);
     }
+
+    public function clientDetail()
+    {
+        if (!isset($_GET['id']))
+            $this->redirect('/client/formation');
+        $id = $_GET['id'];
+        $data = $this->formationModel->getById($id);
+        $this->view('client/FormationView', 'Detail Formation - ' . $data->cours . ' - ' . $data->formateur, $data);
+    }
     public function add()
     {
         $dependencies['domaine'] = $this->domaineModel->getAll();

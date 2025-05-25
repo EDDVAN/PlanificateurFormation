@@ -82,12 +82,11 @@ Router::post('/gestion/date/delete', ['FormationDateController', 'delete'], ['Au
 
 // Calender
 Router::get('/dashboard/calendar', ['CalendarController', 'dashboard'], ['Auth']);
-Router::get('/calendar', ['CalendarController', 'index']);
-// Router::post('/dashboard/ville/create', ['VilleController', 'create']);
-// Router::get('/dashboard/ville/edit', ['VilleController', 'edit']);
-// Router::post('/dashboard/ville/update', ['VilleController', 'update']);
-// Router::post('/dashboard/ville/delete', ['VilleController', 'delete']);
+Router::get('/client/calendar', ['CalendarController', 'client']);
+
 
 // Client
 Router::get('/client/formation', ['FormationController', 'client']);
-Router::get('/client/calendar', ['CalendarController', 'client']);
+Router::get('/client/formation/view', ['FormationController', 'clientDetail']);
+Router::get('/client/formation/inscription', ['InscriptionController', 'inscription']);
+Router::post('/client/formation/join', ['InscriptionController', 'join']);
