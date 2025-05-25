@@ -31,6 +31,22 @@ class formationController extends Controller
 
         $this->view('formation/index', 'Gestion Formation', $data, $dependencies);
     }
+
+    public function client()
+    {
+        if (empty($_GET['domaine']) && empty($_GET['sujet']) && empty($_GET['cours']) && empty($_GET['formateur']))
+            $data = $this->formationModel->getAll();
+        else
+            $data = $this->formationModel->getFiltered($_GET['formateur'], $_GET['domaine'], $_GET['sujet'], $_GET['cours']);
+
+        // Dependency filter in front end
+        $dependencies['domaine'] = $this->domaineModel->getAll();
+        $dependencies['sujet'] = $this->sujetModel->getAll();
+        $dependencies['cours'] = $this->coursModel->getAll();
+        $dependencies['formateur'] = $this->formateurModel->getAll();
+
+        $this->view('client/Formation', 'Liste Formation', $data, $dependencies);
+    }
     public function add()
     {
         $dependencies['domaine'] = $this->domaineModel->getAll();

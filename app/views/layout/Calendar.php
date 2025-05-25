@@ -34,7 +34,7 @@ $colors = [
 ?>
 
 <article class="flex flex-col md:flex-row gap-4 p-4 md:gap-8 md:p-8 ">
-    <form action="/dashboard/calendar" method="get"
+    <form action="<?= Session::get('path'); ?>" method="get"
         class="md:w-1/8 w-full flex flex-col pt-16 flex-row md:flex-col gap-4 ">
         <input type="hidden" name="month" value="<?= $month; ?>">
         <input type="hidden" name="year" value="<?= $year; ?>">

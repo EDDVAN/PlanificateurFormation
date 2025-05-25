@@ -19,7 +19,7 @@
                 <p class="hidden text-gray-500 md:mt-4 md:block font-bold">Des cours adaptés. Des résultats concrets. Un impact durable.</p>
                 <div class="mt-4 md:mt-8">
                     <a
-                        href="#"
+                        href="/client/formation"
                         class="inline-block bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:ring-3 focus:ring-emerald-400 focus:outline-hidden">
                         Découvrir nos formations
                     </a>

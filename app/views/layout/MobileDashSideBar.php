@@ -32,19 +32,6 @@ if (Session::hasMessage() == 1) {
 
         <div class="py-4">
             <a
-                href="/formation-date"
-                class="group relative flex justify-center rounded-sm px-2 text-xl py-1.5 <?= str_contains(Session::get('path'), '/formation-date') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'; ?>">
-                <i class="ph ph-newspaper"></i>
-
-                <span
-                    class="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded-sm bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
-                    Formations
-                </span>
-            </a>
-        </div>
-
-        <div class="py-4">
-            <a
                 href="#"
                 class="group relative flex justify-center rounded-sm px-2 text-xl py-1.5 <?= str_contains(Session::get('path'), '/inscription') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'; ?>">
                 <i class="ph ph-users"></i>
