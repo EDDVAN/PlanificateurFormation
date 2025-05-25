@@ -7,11 +7,11 @@ include 'MobileDashSideBar.php';
 <div class="<?= str_contains(Session::get('path'), '/gestion') ? "w-56 " : "w-16"; ?> hidden md:flex md:flex-row">
     <div class="flex h-screen w-16 flex-col justify-between border-e border-gray-100 bg-white">
         <div>
-            <div class="inline-flex size-16 items-center justify-center">
+            <a href="/" class="inline-flex size-16 items-center justify-center">
                 <span class="grid size-10 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
                     <?= strtoupper($_SESSION['user']->username[0]); ?>
                 </span>
-            </div>
+            </a>
 
             <div class="border-t border-gray-100">
                 <div class="px-2">
@@ -43,7 +43,7 @@ include 'MobileDashSideBar.php';
                         </li>
                         <li>
                             <a
-                                href="#"
+                                href="/inscription"
                                 class="group relative flex justify-center rounded-sm px-2 text-xl py-1.5 <?= str_contains(Session::get('path'), '/inscription') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'; ?>">
                                 <i class="ph ph-users"></i>
 
@@ -72,6 +72,14 @@ include 'MobileDashSideBar.php';
         </div>
 
         <div class="sticky inset-x-0 bottom-0 border-t border-gray-100 bg-white p-2">
+            <!-- <a href="/"
+                class="group cursor-pointer relative flex w-full justify-center rounded-lg px-2 py-1.5 text-xl text-gray-500 hover:bg-gray-50 hover:text-gray-700">
+                <i class="ph ph-arrow-bend-double-up-left"></i>
+                <span
+                    class="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded-sm bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
+                    Home Page
+                </span>
+            </a> -->
             <form action="/logout" method="post">
                 <button
                     type="submit"

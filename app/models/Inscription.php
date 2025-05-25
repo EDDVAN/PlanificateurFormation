@@ -9,7 +9,9 @@ class Inscription extends Model
 
     public function getAll()
     {
-        $sql = "SELECT * FROM inscription ;";
+        $sql = "SELECT i.*,fd.idFormation, fd.idVille, fd.date, fd.formateur, fd.cours, fd.idSujet, fd.sujet, fd.idDomaine,
+                        fd.domaine, fd.idFormateur, fd.idCours, fd.price, fd.mode, fd.ville, fd.villeSigle, fd.pays, fd.paysSigle 
+                    FROM planforma.inscription i Join vformation_date fd on i.idFormationDate = fd.id;";
         return $this->query($sql)->fetchAll();
     }
 
@@ -19,6 +21,18 @@ class Inscription extends Model
         return $this->query($sql, [$id])->fetch();
     }
 
+    public function getPaid()
+    {
+        $sql = "SELECT * FROM inscription WHERE paid = 1;";
+        return $this->query($sql)->fetchAll();
+    }
+
+    public function getIncome()
+    {
+        $sql = "SELECT sum(fd.price) as total
+                    FROM planforma.inscription i Join vformation_date fd on i.idFormationDate = fd.id WHERE paid = 1;";
+        return $this->query($sql)->fetch()->total;
+    }
 
     public function add($formationDate, $firstName, $lastName, $phone, $email, $company)
     {

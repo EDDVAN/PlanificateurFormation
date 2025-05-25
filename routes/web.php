@@ -90,3 +90,9 @@ Router::get('/client/formation', ['FormationController', 'client']);
 Router::get('/client/formation/view', ['FormationController', 'clientDetail']);
 Router::get('/client/formation/inscription', ['InscriptionController', 'inscription']);
 Router::post('/client/formation/join', ['InscriptionController', 'join']);
+
+// Inscription Dashboard
+Router::get('/inscription', ['InscriptionController', 'index'], ['Auth']);
+Router::get('/inscription/edit', ['InscriptionController', 'edit'], ['Auth']);
+Router::post('/inscription/update', ['InscriptionController', 'update'], ['Auth']);
+Router::post('/inscription/delete', ['InscriptionController', 'delete'], ['Auth']);

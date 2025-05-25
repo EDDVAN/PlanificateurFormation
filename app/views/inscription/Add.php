@@ -14,7 +14,8 @@
                     <select
                         id="formationDate"
                         name="formationDate"
-                        class="mt-0.5 w-full border-gray-300 px-3 py-2 text-gray-900 shadow-sm sm:text-sm">
+                        class="mt-0.5 w-full border-gray-300 px-3 py-2 text-gray-900 shadow-sm sm:text-sm"
+                        required>
                         <option value="">Selectionnez une Date Formation</option>
                         <?php
                         foreach ($dependencies['formationDate'] as $row) {
@@ -42,14 +43,14 @@
                     <input
                         type="text"
                         id="lastname"
-                        name="lastname"
+                        name="lastName"
                         step="0.01"
                         class="mt-0.5  w-full border-gray-300 px-3 py-2 text-gray-900 shadow-sm sm:text-sm"
                         maxlength="100"
                         required />
                 </label>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 ">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 ">
                 <label for="Email">
                     <span class="text-sm font-medium text-gray-700">Email <span class="text-red-700">*</span></span>
                     <input

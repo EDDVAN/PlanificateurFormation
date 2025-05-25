@@ -14,9 +14,9 @@ class InscriptionController extends Controller
     }
     public function index()
     {
-        $data = $this->formationDateModel->getAll();
+        $data = $this->inscriptionModel->getAll();
 
-        $this->view('date/index', 'Gestion Dates', $data);
+        $this->view('inscription/index', 'Gestion Dates', $data);
     }
     public function inscription()
     {
@@ -29,7 +29,7 @@ class InscriptionController extends Controller
     public function edit()
     {
         if (!isset($_GET['id']) || !isset($_GET['formation'])) {
-            $this->redirect('/formation');
+            $this->redirect('/inscription');
         }
         $id = $_GET['id'];
         $data = $this->inscriptionModel->getById($id);
@@ -89,6 +89,7 @@ class InscriptionController extends Controller
             Session::setMessage('Success', 'Inscription supprimé avec succès!');
         else
             Session::setMessage('Fail', 'Echec de la suppression!');
+
         $this->redirect('/inscription');
     }
 }

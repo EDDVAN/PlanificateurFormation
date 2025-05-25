@@ -31,19 +31,19 @@ if (Session::hasMessage() == 1) {
             </nav>
 
             <div class="flex items-center gap-4">
-                <div class="sm:flex sm:gap-4">
+                <div class="flex gap-2 w-fit">
                     <?php
                     if (Session::isLogged() == false) { ?>
-                        <a class="block border-2 border-emerald-600  px-5 py-2.5 text-sm font-medium text-emerald-600 transition hover:bg-emerald-600
+                        <a class="block p-2 border-2 border-emerald-600  md:px-5 md:py-2.5 text-sm font-medium text-emerald-600 transition hover:bg-emerald-600
                                     hover:text-white hover:cursor-pointer"
                             href="/login">
                             Login
                         </a>
                     <?php } else { ?>
-                        <a href="/dashboard" class="block border-2 border-emerald-600  px-5 py-2.5 text-sm font-medium text-emerald-600 transition hover:bg-emerald-600
+                        <a href="/dashboard" class="block p-2 border-2 border-emerald-600  md:px-5 md:py-2.5 text-sm font-medium text-emerald-600 transition hover:bg-emerald-600
                                     hover:text-white hover:cursor-pointer">Dashboard</a>
                         <form action="/logout" method="post">
-                            <button class="block border-2 border-emerald-600  px-5 py-2.5 text-sm font-medium text-emerald-600 transition hover:bg-emerald-600
+                            <button class="block p-2 border-2 border-emerald-600  md:px-5 md:py-2.5 text-sm font-medium text-emerald-600 transition hover:bg-emerald-600
                                     hover:text-white hover:cursor-pointer">
                                 Logout
                             </button>

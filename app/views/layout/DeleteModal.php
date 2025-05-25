@@ -4,7 +4,7 @@
     aria-modal="true"
     aria-labelledby="modalTitle">
     <input type="hidden" name="id" value="">
-    <div class="w-full h-52 max-w-md rounded-lg bg-white p-6 shadow-lg">
+    <div class="w-full max-w-md rounded-lg bg-white p-6 shadow-lg h-fit">
         <div class="flex items-start justify-between">
             <h2 id="modalTitle" class="text-xl font-bolder text-gray-900 sm:text-2xl">Supprimer <span id="delete-modal-title-span" class="font-bold">IT</span></h2>
             <button
