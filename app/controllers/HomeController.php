@@ -18,8 +18,14 @@ class HomeController extends Controller
         $this->view('404', '404 Page Not Found');
     }
 
-    public function dashboard()
+    public function contact()
     {
-        $this->view('layout/Calandar', 'Dashboard');
+        $this->view('Contact', 'Home');
+    }
+    public function sendContact()
+    {
+        //handle SMTP EMAIL SEND
+        Session::setMessage('Success', 'Votre message a été envoyé avec succès!');
+        $this->view('Home', 'Home');
     }
 }

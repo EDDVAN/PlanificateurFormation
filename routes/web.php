@@ -96,3 +96,6 @@ Router::get('/inscription', ['InscriptionController', 'index'], ['Auth']);
 Router::get('/inscription/edit', ['InscriptionController', 'edit'], ['Auth']);
 Router::post('/inscription/update', ['InscriptionController', 'update'], ['Auth']);
 Router::post('/inscription/delete', ['InscriptionController', 'delete'], ['Auth']);
+
+Router::get('/contact', ['HomeController', 'contact']);
+Router::post('/contact/send', ['HomeController', 'SendContact']);
