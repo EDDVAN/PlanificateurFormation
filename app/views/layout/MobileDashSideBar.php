@@ -3,8 +3,8 @@ if (Session::hasMessage() == 1) {
     include 'Alert.php';
 }
 ?>
-<div class="flex flex-col <?= str_contains(Session::get('path'), '/gestion') ? "h-24 " : "w-16"; ?>  w-screen md:hidden">
-    <div class="flex justify-between border-e border-gray-100 bg-white">
+<div class="flex flex-col <?= str_contains(Session::get('path'), '/gestion') ? "h-24 " : "h-16"; ?> md:hidden">
+    <div class="flex justify-center gap-8 xs:gap-8 border-e border-gray-100 bg-white">
         <div class="py-4">
             <a
                 href="/dashboard"

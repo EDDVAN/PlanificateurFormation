@@ -29,7 +29,7 @@ class FormationDate extends Model
         if (!$year) $year = date('Y');
         $sql = "SELECT fd.* FROM vformation_date fd WHERE 
                         fd.date >= STR_TO_DATE(CONCAT(?, '-', ?, '-01'), '%Y-%m-%d')
-                        AND fd.date <  STR_TO_DATE(CONCAT(?, '-', ?, '-01'), '%Y-%m-%d') + INTERVAL 1 MONTH;;";
+                        AND fd.date <  STR_TO_DATE(CONCAT(?, '-', ?, '-01'), '%Y-%m-%d') + INTERVAL 1 MONTH;";
         return $this->query($sql, [$year, $month, $year, $month])->fetchAll();
     }
 
@@ -39,19 +39,19 @@ class FormationDate extends Model
         $where = "id > 0";
         $params = [];
         if (!empty($idFormateur)) {
-            $where .= " AND f.idFormateur = ?";
+            $where .= " AND fd.idFormateur = ?";
             array_push($params, $idFormateur);
         }
         if (!empty($idSujet)) {
-            $where .= " AND f.idSujet = ?";
+            $where .= " AND fd.idSujet = ?";
             array_push($params, $idSujet);
         }
         if (!empty($idCours)) {
-            $where .= " AND f.idCours = ?";
+            $where .= " AND fd.idCours = ?";
             array_push($params, $idCours);
         }
         if (!empty($idDomaine)) {
-            $where .= " AND f.idDomaine = ?";
+            $where .= " AND fd.idDomaine = ?";
             array_push($params, $idDomaine);
         }
         if (!empty($idVille)) {
@@ -67,19 +67,19 @@ class FormationDate extends Model
         $where = "";
         $params = [];
         if (!empty($idFormateur)) {
-            $where .= " AND f.idFormateur = ?";
+            $where .= " AND fd.idFormateur = ?";
             array_push($params, $idFormateur);
         }
         if (!empty($idSujet)) {
-            $where .= " AND f.idSujet = ?";
+            $where .= " AND fd.idSujet = ?";
             array_push($params, $idSujet);
         }
         if (!empty($idCours)) {
-            $where .= " AND f.idCours = ?";
+            $where .= " AND fd.idCours = ?";
             array_push($params, $idCours);
         }
         if (!empty($idDomaine)) {
-            $where .= " AND f.idDomaine = ?";
+            $where .= " AND fd.idDomaine = ?";
             array_push($params, $idDomaine);
         }
         if (!empty($idVille)) {
@@ -95,19 +95,19 @@ class FormationDate extends Model
         $where = "";
         $params = [];
         if (!empty($idFormateur)) {
-            $where .= " AND f.idFormateur = ?";
+            $where .= " AND fd.idFormateur = ?";
             array_push($params, $idFormateur);
         }
         if (!empty($idSujet)) {
-            $where .= " AND f.idSujet = ?";
+            $where .= " AND fd.idSujet = ?";
             array_push($params, $idSujet);
         }
         if (!empty($idCours)) {
-            $where .= " AND f.idCours = ?";
+            $where .= " AND fd.idCours = ?";
             array_push($params, $idCours);
         }
         if (!empty($idDomaine)) {
-            $where .= " AND f.idDomaine = ?";
+            $where .= " AND fd.idDomaine = ?";
             array_push($params, $idDomaine);
         }
         if (!empty($idVille)) {
@@ -115,6 +115,35 @@ class FormationDate extends Model
             array_push($params, $idVille);
         }
         $sql = "SELECT fd.* FROM vformation_date fd WHERE fd.date < CURDATE() $where;";
+        return $this->query($sql, $params)->fetchAll();
+    }
+
+    public function getByMonthFiltered($month, $year, $idFormateur, $idDomaine, $idSujet, $idCours, $idVille)
+    {
+        $where = "";
+        $params = [$year, $month, $year, $month];
+        if (!empty($idFormateur)) {
+            $where .= " AND fd.idFormateur = ?";
+            array_push($params, $idFormateur);
+        }
+        if (!empty($idSujet)) {
+            $where .= " AND fd.idSujet = ?";
+            array_push($params, $idSujet);
+        }
+        if (!empty($idCours)) {
+            $where .= " AND fd.idCours = ?";
+            array_push($params, $idCours);
+        }
+        if (!empty($idDomaine)) {
+            $where .= " AND fd.idDomaine = ?";
+            array_push($params, $idDomaine);
+        }
+        if (!empty($idVille)) {
+            $where .= " AND fd.idVille = ?";
+            array_push($params, $idVille);
+        }
+        $sql = "SELECT fd.* FROM vformation_date fd WHERE (fd.date >= STR_TO_DATE(CONCAT(?, '-', ?, '-01'), '%Y-%m-%d')
+                        AND fd.date < STR_TO_DATE(CONCAT(?, '-', ?, '-01'), '%Y-%m-%d') + INTERVAL 1 MONTH) $where;";
         return $this->query($sql, $params)->fetchAll();
     }
 
